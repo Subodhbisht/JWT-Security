@@ -62,5 +62,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 				.sign(HMAC512(JwtProperties.SECRET.getBytes()));
 		// Add token to header
 		response.addHeader(JwtProperties.HEADER_STRING, JwtProperties.TOKEN_PREFIX + token);
+		response.getWriter().write("Token successfully generated");
+		response.getWriter().flush();
 	}
 }
